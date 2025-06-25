@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Incident Response Result</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: 'Space Grotesk', sans-serif;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #vanta-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(18px);
+      border-radius: 25px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 50px;
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .labels {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .action {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      font-size: 1rem;
+      background: linear-gradient(to right, #a29bfe, #74b9ff);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(to right, #81ecec, #74b9ff);
+      transform: scale(1.05);
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      height: 60px;
+    }
+
+    .fire { color: #e74c3c; font-weight: bold; }
+    .police { color: #3498db; font-weight: bold; }
+    .medical { color: #2ecc71; font-weight: bold; }
+    .traffic { color: #f39c12; font-weight: bold; }
+    .unknown { color: #7f8c8d; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div id="vanta-bg"></div>
+  <img src="/static/twiq-logo.png" class="logo" alt="Logo">
+
+  <div class="container">
+    <h1>Incident Response Result</h1>
+    <div class="labels">
+      {% for label in labels %}
+        <span class="{{ label }}">{{ label }}</span>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </div>
+    <div class="action">{{ action }}</div>
+    <a href="/" class="btn">New Report</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  <script>
+    VANTA.WAVES({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x74b9ff,
+      shininess: 60.00,
+      waveHeight: 25.00,
+      waveSpeed: 0.5,
+      zoom: 0.85
+    });
+  </script>
+</body>
+</html>
