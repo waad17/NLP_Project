@@ -1,72 +1,77 @@
 # NLP_Project
 
-Incident Classification and Response Generation System using NLP 🚨
+# NLP_Project
 
-This project is an end-to-end NLP application that classifies Arabic emergency incident descriptions into relevant response teams (e.g., Police, Fire, Ambulance) and automatically generates a suitable response message. Built with deep learning and deployed through an interactive web interface using Flask.
+Multi-Task NLP System for Emergency Incident Reports 🚨
 
----
-
-## 🔍 Project Overview
-
-This application uses a multi-label classification model trained on Arabic emergency report descriptions. It detects the type(s) of incident and recommends which teams should be dispatched. The model is based on TensorFlow and trained using preprocessed tokenized text data.
-
-Users interact through a modern, styled web interface where they can describe an incident and immediately receive predictions and an automated response message.
+This project implements a multi-task Natural Language Processing (NLP) system that processes synthetic emergency incident reports to classify incident types, summarize the report, generate appropriate emergency actions, and construct automated responses. The system supports real-time predictions through a web interface using Flask.
 
 ---
 
-## 🎯 Project Objectives
+## 🧠 Project Objectives
 
-- Perform multi-label classification on Arabic incident reports.
-- Automatically generate natural response messages based on predicted labels.
-- Design a lightweight Flask web application to interact with the model.
-- Use expressive UI components with real-time prediction display.
-- Provide clean UX with background animation and clear feedback messages.
-
----
-
-## 📊 Dataset Description
-
-- **Source**: Synthetic and real emergency incident reports in Arabic.
-- **Type**: Multi-label text classification.
-- **Labels**: `['fire', 'police', 'ambulance', 'civil defense', 'unknown']`
-- **Format**: Arabic text description with one or more corresponding response labels.
-- **Tokenization**: Handled using Keras Tokenizer and pickled for reuse.
+- Perform multi-label classification of emergency incidents (e.g., fire, ambulance, police)
+- Generate concise summaries from report descriptions
+- Recommend appropriate emergency actions
+- Construct natural response messages to confirm dispatch
+- Provide a user-friendly web interface for input and output display
 
 ---
 
-## 🧠 Model Architecture
+## 📦 Dataset Description
 
-- **Framework**: TensorFlow / Keras
-- **Input**: Cleaned, tokenized, and padded Arabic incident text
-- **Model Type**: Custom Sequential or Functional model with sigmoid activation for multi-label output
-- **Output**: Probability vector for each label
-- **Threshold**: 0.3 for multi-label prediction
-- **Postprocessing**: `MultiLabelBinarizer` used to decode predictions
-
----
-
-## 💻 Technologies Used
-
-- Python
-- TensorFlow
-- Flask
-- HTML5 + CSS3
-- Vanta.js (for background animation)
-- Google Fonts (Space Grotesk)
-- Pickle (for loading tokenizer and label encoder)
+- **Source**: Synthetic dataset generated for simulation
+- **Records**: 50,000 incident reports
+- **Language**: English
+- **Fields**:
+  - `description`: Raw incident report text
+  - `summary`: Generated summary
+  - `label`: Incident type(s) (multi-label)
+  - `action`: Suggested operational response
+  - `response`: Generated user-facing reply message
 
 ---
 
-## 📂 Project Structure
-├── app.py # Flask backend
-├── index.html # Main form UI
-├── result.html # Response display page
-├── tokenizer_desc.pkl # Tokenizer for Arabic descriptions
-├── tokenizer_action.pkl # Optional: Tokenizer for action text
-├── mlb.pkl # MultiLabelBinarizer for label decoding
-├── incident_response_model.keras # Trained TensorFlow model
-├── static/
-│ └── twiq-logo.png # Tuwaiq logo used in UI
+## 🛠️ Technologies Used
 
+- Python, Flask
+- TensorFlow / Keras
+- Scikit-learn (MultiLabelBinarizer)
+- Pickle (for tokenizer/model saving)
+- HTML/CSS (for UI)
+- Vanta.js (animated background)
 
+---
 
+## 🖥️ Web App Features
+
+- Elegant home page with animated background and input form
+- Result page displays:
+  - Colored incident types (e.g., fire = red, police = blue)
+  - Auto-generated dispatch message
+  - A "New Report" button to submit again
+
+---
+
+## 🧩 Future Improvements
+
+- Add Arabic language support for multilingual incident handling
+- Train the model on real-world datasets (e.g., 911 call transcripts)
+- Deploy on cloud for public access with GPU acceleration
+- Integrate with live map services for location-based dispatching
+- Enhance UI with icons and voice input
+
+---
+
+## 👩‍💻 Author
+
+**Waad Alqahtani**  
+AI Diploma Student, Tuwaiq Academy  
+Date: **June 25, 2025**
+
+---
+
+## 🏫 Developed As Part of
+
+**AI Diploma Program – Tuwaiq Academy**  
+Cohort 2024–2025 – Final Project (NLP Track)
